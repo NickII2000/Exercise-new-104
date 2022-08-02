@@ -44,4 +44,4 @@ function modal() {
     const modalTimerId = setTimeout(openModal, 50000);
 }
 
-module.exports = modal;
+export default modal;
