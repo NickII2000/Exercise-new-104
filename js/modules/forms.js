@@ -8,8 +8,8 @@ function forms() {
         failure: 'Что-то пошло не так...'
     };
 
-    console.log(forms);
-    console.log(forms.length);
+    // console.log(forms);
+    // console.log(forms.length);
 
     forms.forEach(item => {
         bindPostData(item);

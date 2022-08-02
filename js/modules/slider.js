@@ -2,8 +2,8 @@ function slider() {
     // Slider
 
     const slides = document.querySelectorAll('.offer__slide'),
-        slider = document.querySelector('.offer__slider');
-    prev = document.querySelector('.offer__slider-prev'),
+        slider = document.querySelector('.offer__slider'),
+        prev = document.querySelector('.offer__slider-prev'),
         next = document.querySelector('.offer__slider-next'),
         total = document.querySelector('#total'),
         current = document.querySelector('#current'),
