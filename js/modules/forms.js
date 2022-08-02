@@ -1,3 +1,5 @@
+import { openModal, closeModal } from './modal';
+
 function forms() {
     // Forms
 
@@ -7,9 +9,6 @@ function forms() {
         success: 'Спасибо! Скоро мы с вами свяжемся',
         failure: 'Что-то пошло не так...'
     };
-
-    // console.log(forms);
-    // console.log(forms.length);
 
     forms.forEach(item => {
         bindPostData(item);

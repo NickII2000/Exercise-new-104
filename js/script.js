@@ -9,7 +9,7 @@ import slider from './modules/slider';
 window.addEventListener('DOMContentLoaded', () => {
 
     tabs();
-    modal();
+    modal('[data-modal]', '.modal');
     timer();
     cards();
     calc();
