@@ -1,10 +1,14 @@
-function openModal(modalSelector) {
+function openModal(modalSelector, modalTimerId) {
     const modal = document.querySelector(modalSelector);
 
     modal.classList.add('show');
     modal.classList.remove('hide');
     document.body.style.overflow = 'hidden';
-    clearInterval(modalTimerId);
+
+    if (showModalByScroll) {
+        clearInterval(modalTimerId);
+    }
+
     window.removeEventListener('scroll', showModalByScroll);
 }
 

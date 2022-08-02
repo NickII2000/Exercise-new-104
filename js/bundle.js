@@ -340,13 +340,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   "openModal": () => (/* binding */ openModal)
 /* harmony export */ });
-function openModal(modalSelector) {
+function openModal(modalSelector, modalTimerId) {
     const modal = document.querySelector(modalSelector);
 
     modal.classList.add('show');
     modal.classList.remove('hide');
     document.body.style.overflow = 'hidden';
-    clearInterval(modalTimerId);
+
+    if (showModalByScroll) {
+        clearInterval(modalTimerId);
+    }
+
     window.removeEventListener('scroll', showModalByScroll);
 }
 
