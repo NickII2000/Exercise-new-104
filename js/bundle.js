@@ -528,12 +528,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function tabs() {
+function tabs(tabSelector, tabContentSelector, tavParentSelector, activeClass) {
     // Tabs
 
-    const tabs = document.querySelectorAll('.tabheader__item'),
-        tabContent = document.querySelectorAll('.tabcontent'),
-        tabParent = document.querySelector('.tabheader__items');
+    const tabs = document.querySelectorAll(tabSelector),
+        tabContent = document.querySelectorAll(tabContentSelector),
+        tabParent = document.querySelector(tavParentSelector);
 
     function hideTabContent() {
         tabContent.forEach(item => {
@@ -541,14 +541,14 @@ function tabs() {
             item.classList.remove('show', 'fade');
         });
         tabs.forEach(item => {
-            item.classList.remove('tabheader__item_active');
+            item.classList.remove(activeClass);
         });
     }
 
     function showTabContent(i = 0) {
         tabContent[i].classList.add('show', 'fade');
         tabContent[i].classList.remove('hide');
-        tabs[i].classList.add('tabheader__item_active');
+        tabs[i].classList.add(activeClass);
     }
 
     hideTabContent();
@@ -556,7 +556,7 @@ function tabs() {
 
     tabParent.addEventListener('click', (event) => {
         const target = event.target;
-        if (target && target.classList.contains('tabheader__item')) {
+        if (target && target.classList.contains(tabSelector.slice(1))) {
             tabs.forEach((item, i) => {
                 if (target == item) {
                     hideTabContent();
@@ -581,12 +581,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function timer() {
+function timer(timerSelector, deadLine) {
     // Timer
-
-    const deadLine = new Date(new Date().getTime() + 10 * (24 * 60 * 60 * 1000));
-    // const deadLine = new Date(new Date().getTime() + 3000);
-    // const deadLine = '2022-08-01';
 
     function getTimeRemaining(endTime) {
         let days, hours, minutes, seconds;
@@ -641,7 +637,7 @@ function timer() {
             }
         }
     }
-    setClock('.timer', deadLine);
+    setClock(timerSelector, deadLine);
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (timer);
@@ -769,9 +765,9 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', () => {
     const modalTimerId = setTimeout(() => (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__.openModal)('.modal', modalTimerId), 50000);
 
-    (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_0__["default"])('.tabheader__item', '.tabcontent', '.tabheader__items', 'tabheader__item_active');
     (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])('[data-modal]', '.modal', modalTimerId);
-    (0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__["default"])();
+    (0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__["default"])('.timer', new Date(new Date().getTime() + 10 * (24 * 60 * 60 * 1000))); // или new Date(new Date().getTime() + 3000), или //'2022-08-01'
     (0,_modules_cards__WEBPACK_IMPORTED_MODULE_3__["default"])();
     (0,_modules_calc__WEBPACK_IMPORTED_MODULE_4__["default"])();
     (0,_modules_forms__WEBPACK_IMPORTED_MODULE_5__["default"])('form', modalTimerId);
