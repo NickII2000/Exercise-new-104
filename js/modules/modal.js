@@ -10,7 +10,7 @@ function openModal(modalSelector, modalTimerId) {
         clearInterval(modalTimerId);
     }
 
-    window.removeEventListener('scroll', showModalByScroll);
+    // window.removeEventListener('scroll', showModalByScroll);
 }
 
 function closeModal(modalSelector) {
