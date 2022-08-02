@@ -347,7 +347,8 @@ function openModal(modalSelector, modalTimerId) {
     modal.classList.remove('hide');
     document.body.style.overflow = 'hidden';
 
-    if (showModalByScroll) {
+    console.log(`modalTimerId = ${modalTimerId}`);
+    if (modalTimerId) {
         clearInterval(modalTimerId);
     }
 
@@ -362,7 +363,7 @@ function closeModal(modalSelector) {
     document.body.style.overflow = '';
 }
 
-function modal(triggerSelector, modalSelector) {
+function modal(triggerSelector, modalSelector, modalTimerId) {
     // Modal
 
     const modalTrigger = document.querySelectorAll(triggerSelector),
@@ -371,13 +372,13 @@ function modal(triggerSelector, modalSelector) {
 
     function showModalByScroll() {
         if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
-            openModal(modalSelector);
+            openModal(modalSelector, modalTimerId);
         }
     }
 
     window.addEventListener('scroll', showModalByScroll);
 
-    modalTrigger.forEach(btn => btn.addEventListener('click', () => openModal(modalSelector)));
+    modalTrigger.forEach(btn => btn.addEventListener('click', () => openModal(modalSelector, modalTimerId)));
 
     modal.addEventListener('click', (event) => {
         if (event.target === modal || event.target.getAttribute('data-close') == '') {
@@ -390,8 +391,6 @@ function modal(triggerSelector, modalSelector) {
             closeModal(modalSelector);
         }
     });
-
-    const modalTimerId = setTimeout(openModal, 50000);
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);
@@ -755,10 +754,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 window.addEventListener('DOMContentLoaded', () => {
+    const modalTimerId = setTimeout(() => (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__.openModal)('.modal', modalTimerId), 50000);
 
     (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_0__["default"])();
-    (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])('[data-modal]', '.modal');
+    (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])('[data-modal]', '.modal', modalTimerId);
     (0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__["default"])();
     (0,_modules_cards__WEBPACK_IMPORTED_MODULE_3__["default"])();
     (0,_modules_calc__WEBPACK_IMPORTED_MODULE_4__["default"])();
