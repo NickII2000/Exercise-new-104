@@ -1,7 +1,7 @@
 import { getResource } from '../services/services';
 
 function cards() {
-    // Используем классы для карточек
+    // Cards. Используем классы для карточек
 
     class MenuCard {
         constructor(src, alt, title, descr, price, parentSelector, ...classes) {

@@ -150,7 +150,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function cards() {
-    // Используем классы для карточек
+    // Cards. Используем классы для карточек
 
     class MenuCard {
         constructor(src, alt, title, descr, price, parentSelector, ...classes) {
@@ -417,7 +417,7 @@ function slider({ container, slide, nextArrow, prevArrow, totalCounter, currentC
 
     const indicators = document.createElement('ol'),
         dots = [];
-    indicators.classList.add('carousel-indicators'); // если бы стили были в CSS-файле 'style_add_for_slider.css'
+    // indicators.classList.add('carousel-indicators'); // если бы стили были в CSS-файле 'style_add_for_slider.css'
     indicators.style.cssText = `
         position: absolute;
         right: 0;
@@ -434,7 +434,7 @@ function slider({ container, slide, nextArrow, prevArrow, totalCounter, currentC
 
     for (let i = 0; i < slides.length; i++) {
         const dot = document.createElement('li');
-        dot.classList.add('dot'); // если бы стили были в CSS-файле 'style_add_for_slider.css'
+        // dot.classList.add('dot'); // если бы стили были в CSS-файле 'style_add_for_slider.css'
         dot.setAttribute('data-slide-to', i + 1);
         dot.style.cssText = `
             box-sizing: content-box;
