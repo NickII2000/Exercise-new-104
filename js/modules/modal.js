@@ -25,12 +25,12 @@ function modal(triggerSelector, modalSelector, modalTimerId) {
     // Modal
 
     const modalTrigger = document.querySelectorAll(triggerSelector),
-        modal = document.querySelector(modalSelector),
-        prevModalDialog = document.querySelector('.modal__dialog');
+        modal = document.querySelector(modalSelector);
 
     function showModalByScroll() {
         if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
             openModal(modalSelector, modalTimerId);
+            window.removeEventListener('scroll', showModalByScroll);
         }
     }
 
